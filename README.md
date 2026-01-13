@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 📦 EcoPackAI: AI-Powered Sustainable Packaging Recommendation System
+
 📘 Introduction
 
 EcoPackAI is an AI-powered sustainable packaging recommendation system that helps businesses choose the best packaging material based on product requirements, material durability, cost efficiency, and environmental impact (CO₂).
@@ -368,7 +368,6 @@ psycopg2 (database connectivity)
 VS Code
 
 Git & GitHub
-<<<<<<< HEAD
 
 ## 🚦 Current Project Status
 
@@ -395,4 +394,3 @@ Integrate BI dashboard (Power BI / Tableau)
 
 Deploy full-stack EcoPackAI on cloud (Render/Heroku)
 =======
->>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
