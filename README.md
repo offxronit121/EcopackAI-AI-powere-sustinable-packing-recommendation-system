@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 📦 EcoPackAI: AI-Powered Sustainable Packaging Recommendation System
 📘 Introduction
 
@@ -194,10 +195,69 @@ A composite score combining CO₂, recyclability, and cost
 Used for ranking materials in recommendation
 
 📁 Project Folder Structure
+=======
+# EcoPackAI – AI-Powered Sustainable Packaging Recommendation System
+
+EcoPackAI is an AI-powered sustainable packaging recommendation system that helps businesses choose the best packaging material based on **product requirements**, **material durability**, **cost efficiency**, and **environmental impact (CO₂)**.  
+The project is built with a structured **PostgreSQL database**, proper constraints for data integrity, and a modular codebase ready for future AI/ML integration.
+
+---
+
+## 🎯 Project Objectives
+- Store eco-friendly packaging materials and product requirements in a structured database
+- Validate and clean data for better consistency
+- Engineer sustainability metrics for ranking and recommendation
+- Build a scalable foundation for ML-based predictions (cost & CO₂)
+- Support sustainable decision-making for greener supply chains
+
+---
+
+## 🧱 System Architecture (High-Level)
+1. Raw Data (CSV)
+2. PostgreSQL Database (materials + products)
+3. Data Validation (constraints + checks)
+4. Feature Engineering (sustainability metrics)
+5. Recommendation Logic (ranking)
+6. Future Scope: ML Models + Flask API + Dashboard + Deployment
+
+---
+
+## 🗄️ Database Design (PostgreSQL)
+
+### ✅ Tables
+- **materials**  
+  Stores packaging material attributes:
+  - strength_mpa, weight_capacity
+  - co2_emission_kg_per_kg
+  - biodegradability_score
+  - recyclability_pct
+  - cost_inr_per_kg
+
+- **products**  
+  Stores product attributes:
+  - product_name, category
+  - product_weight_g, product_volume_cm3
+  - fragility_level, moisture_sensitivity, temperature_sensitivity
+  - shelf_life_days
+  - current_packaging_material (linked to materials)
+
+### ✅ Integrity Constraints Used
+- `PRIMARY KEY`
+- `UNIQUE`
+- `NOT NULL`
+- `CHECK` constraints
+- `FOREIGN KEY` relationship (products → materials)
+
+---
+
+## 📁 Project Structure
+```bash
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 EcoPackAI/
 │
 ├── data/
 │   ├── raw/
+<<<<<<< HEAD
 │   │   ├── materials.csv
 │   │   └── products.csv
 │   │
@@ -211,10 +271,18 @@ EcoPackAI/
 │   ├── 02_data_cleaning.ipynb
 │   ├── 03_feature_engineering.ipynb
 │   └── 04_summary_validation.ipynb
+=======
+│   └── processed/
+│
+├── notebooks/
+│
+├── screenshots/
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 │
 ├── sql/
 │   └── EcoPackAI_Database.sql
 │
+<<<<<<< HEAD
 ├── screenshots/
 │
 ├── src/
@@ -226,10 +294,18 @@ EcoPackAI/
 └── README.md
 
 
+=======
+├── src/
+│
+├── venv/
+│
+└── README.md
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 🚦 Current Project Status
 
 ✅ PostgreSQL database schema created
 
+<<<<<<< HEAD
 ✅ Data inserted into tables
 
 ✅ Row count + sample queries verified
@@ -241,12 +317,29 @@ EcoPackAI/
 ✅ Data cleaning completed
 
 ✅ Feature engineering completed
+=======
+✅ Tables created (materials, products) with constraints
+
+✅ Sample data inserted into database
+
+✅ Row count & sample queries verified
+
+✅ SQL file added to GitHub repository
+
+🔜 Data cleaning & feature engineering (in progress)
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 
 🔜 ML model training (RandomForest/XGBoost)
 
 🔜 Flask API integration
 
+<<<<<<< HEAD
 🔜 Frontend UI + Dashboard
+=======
+🔜 Frontend UI development
+
+🔜 BI Dashboard + Sustainability Reports
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 
 🔜 Deployment & Documentation
 
@@ -254,6 +347,7 @@ EcoPackAI/
 
 Python
 
+<<<<<<< HEAD
 Pandas / NumPy
 
 Scikit-learn
@@ -261,10 +355,20 @@ Scikit-learn
 PostgreSQL
 
 psycopg2
+=======
+PostgreSQL
+
+Pandas / NumPy (future)
+
+Scikit-learn / XGBoost (future)
+
+psycopg2 (database connectivity)
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
 
 VS Code
 
 Git & GitHub
+<<<<<<< HEAD
 
 ## 🚦 Current Project Status
 
@@ -290,3 +394,5 @@ Build Flask REST API for recommendations
 Integrate BI dashboard (Power BI / Tableau)
 
 Deploy full-stack EcoPackAI on cloud (Render/Heroku)
+=======
+>>>>>>> ad27abc1e909838d6575634b67133afca0e8da48
