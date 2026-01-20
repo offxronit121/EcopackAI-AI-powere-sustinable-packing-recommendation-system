@@ -5,7 +5,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-#
 cost_model = joblib.load("D:\EcoPack AI\models\cost_model.pkl")
 co2_model = joblib.load("D:\EcoPack AI\models\co2_model.pkl")
 
