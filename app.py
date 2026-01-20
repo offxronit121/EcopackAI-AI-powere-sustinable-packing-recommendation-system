@@ -1,29 +1,38 @@
 from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
-import os
+import numpy as np
 
 app = Flask(__name__)
 
-#  Model paths 
-COST_MODEL_PATH = os.path.join("models", "cost_model.pkl")
-CO2_MODEL_PATH = os.path.join("models", "co2_model.pkl")
+#
+cost_model = joblib.load("D:\EcoPack AI\models\cost_model.pkl")
+co2_model = joblib.load("D:\EcoPack AI\models\co2_model.pkl")
 
-# Load models
-cost_model = joblib.load(COST_MODEL_PATH)
-co2_model = joblib.load(CO2_MODEL_PATH)
-
-@app.route("/")
-def home():
-    return " EcoPackAI Backend Running!"
+def strength_to_encoded(mpa):
+    if mpa < 20:
+        return 0
+    elif mpa < 50:
+        return 1
+    else:
+        return 2
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.json
-    input_df = pd.DataFrame([data])
+    data = request.get_json(force=True)
+    df = pd.DataFrame([data])
 
-    predicted_cost = cost_model.predict(input_df)[0]
-    predicted_co2 = co2_model.predict(input_df)[0]
+    if "strength_mpa" in df.columns and "cost_inr_per_kg" in df.columns:
+        df["cost_efficiency_index"] = df["strength_mpa"] / df["cost_inr_per_kg"]
+        df["strength_encoded"] = df["strength_mpa"].apply(strength_to_encoded)
+
+    required_cols = list(cost_model.feature_names_in_)
+    X = df.reindex(columns=required_cols, fill_value=0)
+
+    X = X.replace([np.inf, -np.inf], 0)
+
+    predicted_cost = cost_model.predict(X)[0]
+    predicted_co2 = co2_model.predict(X)[0]
 
     return jsonify({
         "predicted_cost": float(predicted_cost),
